@@ -10,3 +10,24 @@
     <li>{{keyword.normal}}</li>
   {{/each}}
 </ul>
+
+<h1>Negative Verbs</h1>
+<ul>
+  {{#each apology.negativeVerbs as |verb|}}
+    <li>{{verb.normal}}</li>
+  {{/each}}
+</ul>
+
+<h1>Positive Verbs</h1>
+<ul>
+  {{#each apology.positiveVerbs as |verb|}}
+    <li>{{verb.normal}}</li>
+  {{/each}}
+</ul>
+
+<h1>Adjectives</h1>
+<ul>
+  {{#each apology.adjectives as |adj|}}
+    <li>{{adj.normal}}</li>
+  {{/each}}
+</ul>
