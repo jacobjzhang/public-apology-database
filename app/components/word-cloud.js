@@ -4,32 +4,32 @@ const { computed } = Ember;
 //import { cloud } from 'd3-cloud';
 
 export default Ember.Component.extend({
-//  tagName: 'canvas',
-//  width: 100,
-//  height: 100,
-//  attributeBindings: ['width','height'],
-//  canvas: computed(function() {
-//    return this.$('canvas');
-//  }),
+  tagName: 'canvas',
+  width: 100,
+  height: 100,
+  attributeBindings: ['width','height'],
 
   didRender() {
-    const el = this.$();
-    console.log(el)
-    var words = ["Hello", "world", "normally", "you", "want", "more", "words", "than", "this"]
+    const el = this.$()[0];
+    const apologyText = this.get('text').split(' ');
+    var words = apologyText
         .map(function(d) {
-          return {text: d, size: 10 + Math.random() * 90};
+          return {text: d, size: 20 + Math.random() * 40};
         });
 
-    window.d3.layout.cloud().size([960, 500])
-        .canvas(function() { return document.createElement("canvas");  })
+    window.d3.layout.cloud()
+        .canvas(function() { return el; })
         .words(words)
-        .padding(5)
+        .padding(1)
         .rotate(function() { return ~~(Math.random() * 2) * 90; })
-        .font("Impact")
+        .font("Helvetica")
+        .spiral("archimedean")
         .fontSize(function(d) { return d.size; })
         .on("end", end)
         .start();
 
-    function end(words) { console.log(JSON.stringify(words)); } 
+    function end(words) { 
+      //this.$()[0].css('width','1000px'); 
+    } 
   }
 });

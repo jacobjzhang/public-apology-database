@@ -1,0 +1,15 @@
+<div class="col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h1>{{title}}</h1></div>
+    <div class="panel-body">
+      <div class="btn-group">
+        {{#each list as |word|}}
+          {{#unless (eq word.normal '') }}
+            {{word-button word=word.normal}}
+          {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+

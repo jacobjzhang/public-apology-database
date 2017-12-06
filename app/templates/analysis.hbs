@@ -1,33 +1,24 @@
-<h1>Analysis</h1>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Analysis of Apology by {{apology.name}}</h1>
+    <p>{{apology.text}}</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Original Statement</a></p>
+  </div>
 
-{{word-cloud text=apology.text}}
+  <div class="row padding-md">
+    {{list-component title="Positive Verbs" list=apology.positiveVerbs}}
 
-{{apology.name}}
+    {{list-component title="Negative Verbs" list=apology.negativeVerbs}}
+  </div>
 
-<h1>Keywords</h1>
-<ul>
-  {{#each apology.keywords as |keyword|}}
-    <li>{{keyword.normal}}</li>
-  {{/each}}
-</ul>
+  <div class="row padding-md">
+    {{list-component title="Keywords" list=apology.keywords}}
 
-<h1>Negative Verbs</h1>
-<ul>
-  {{#each apology.negativeVerbs as |verb|}}
-    <li>{{verb.normal}}</li>
-  {{/each}}
-</ul>
+    {{list-component title="Adjectives" list=apology.adjectives}}
+  </div>
 
-<h1>Positive Verbs</h1>
-<ul>
-  {{#each apology.positiveVerbs as |verb|}}
-    <li>{{verb.normal}}</li>
-  {{/each}}
-</ul>
-
-<h1>Adjectives</h1>
-<ul>
-  {{#each apology.adjectives as |adj|}}
-    <li>{{adj.normal}}</li>
-  {{/each}}
-</ul>
+  <div>
+    <h1>Word Cloud</h1>
+    {{word-cloud text=apology.text}}
+  </div>
+</div>

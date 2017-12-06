@@ -13,21 +13,23 @@ export default DS.Model.extend({
 
   keywords: computed(function() {
     const text = get(this, 'text');
-    return nlp(text).nouns().data();
+    return nlp(text).nouns().data().filter(function(n){ return n != undefined });
   }),
 
   negativeVerbs: computed(function() {
     const text = get(this, 'text');
-    return nlp(text).verbs().isNegative().data();
+    return nlp(text).verbs().isNegative().data().filter(function(n){ return n != undefined });
   }),
 
   positiveVerbs: computed(function() {
     const text = get(this, 'text');
-    return nlp(text).verbs().isPositive().data();
+    const words = nlp(text).verbs().isPositive().data().filter(function(n){ return n != undefined });
+    console.log(words)
+    return words;
   }),
 
   adjectives: computed(function() {
     const text = get(this, 'text');
-    return nlp(text).adjectives().data();
+    return nlp(text).adjectives().data().filter(function(n){ return n != undefined });
   }),
 });

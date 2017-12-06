@@ -1,5 +1,6 @@
 {
   "name": "public-apology-database",
   "dependencies": {
+    "d3": "^4.12.0"
   }
 }
