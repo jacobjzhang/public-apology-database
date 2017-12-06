@@ -14,6 +14,20 @@ export default DS.Model.extend({
   keywords: computed(function() {
     const text = get(this, 'text');
     return nlp(text).nouns().data();
-  })
+  }),
 
+  negativeVerbs: computed(function() {
+    const text = get(this, 'text');
+    return nlp(text).verbs().isNegative().data();
+  }),
+
+  positiveVerbs: computed(function() {
+    const text = get(this, 'text');
+    return nlp(text).verbs().isPositive().data();
+  }),
+
+  adjectives: computed(function() {
+    const text = get(this, 'text');
+    return nlp(text).adjectives().data();
+  }),
 });
