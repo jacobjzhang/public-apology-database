@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('analysis');
+  this.route('analysis', { path: '/analysis/:apology_id' });
 });
 
 export default Router;
