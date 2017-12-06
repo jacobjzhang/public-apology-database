@@ -21,6 +21,7 @@ module.exports = function(defaults) {
   //
   
   app.import('vendor/compromise.js');
+  app.import('bower_components/d3-cloud/build/d3.layout.cloud.js');
 
   return app.toTree();
 };
